@@ -19,20 +19,37 @@ class LinkedList:
             itr = itr.next
         print(llstr)
 
- def insert_at_begining(self, data):
+    def insert_at_begining(self, data):
         node = Node(data, self.head)
         self.head = node
 
 
- def insert_at_end(self, data):
+    def insert_at_end(self, data):
         if self.head is None:
             self.head = Node(data, None)
             return
 
         itr = self.head
-
         while itr.next:
             itr = itr.next
 
         itr.next = Node(data, None)
 
+   def insert_at(self, index, data):
+        if index<0 or index>self.get_length():
+            raise Exception("Invalid Index")
+
+        if index==0:
+            self.insert_at_begining(data)
+            return
+
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                node = Node(data, itr.next)
+                itr.next = node
+                break
+
+            itr = itr.next
+            count += 1
