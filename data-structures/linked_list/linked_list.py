@@ -44,7 +44,7 @@ class LinkedList:
 
         itr.next = Node(data, None)
 
-   def insert_at(self, index, data):
+    def insert_at(self, index, data):
         if index<0 or index>self.get_length():
             raise Exception("Invalid Index")
 
@@ -86,3 +86,14 @@ class LinkedList:
 
             itr = itr.next
             count+=1
+
+if __name__ == '__main__':
+    ll = LinkedList()
+    ll.insert_values(["volvo","nissan","toyota","honda","ram"])
+    ll.insert_at(1,"audi")
+    ll.remove_at(2)
+    ll.print()
+
+    ll.insert_values([45,7,12,567,99])
+    ll.insert_at_end(67)
+    ll.print()
