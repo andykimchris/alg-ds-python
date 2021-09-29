@@ -87,13 +87,35 @@ class LinkedList:
             itr = itr.next
             count+=1
 
+    def remove_node_by_value(self, value_to_remove):
+        current = self.head
+        if current.data == value_to_remove:
+          self.head = current.next
+        else:
+          while current:
+            next_node = current.next
+            if next_node.data == value_to_remove:
+              current.next = current.next.next
+              break
+            else:
+              current = next_node
+
+
 if __name__ == '__main__':
     ll = LinkedList()
-    ll.insert_values(["volvo","nissan","toyota","honda","ram"])
-    ll.insert_at(1,"audi")
-    ll.remove_at(2)
+    ll.insert_values(["volvo","nissan","subaru","toyota","honda","ram"])
+    print("Initial linked list")
     ll.print()
 
-    ll.insert_values([45,7,12,567,99])
-    ll.insert_at_end(67)
+    ll.insert_at(1,"audi")
+    ll.remove_at(2)
+    print("Insert and remove")
+    ll.print()
+
+    ll.remove_node_by_value('toyota')
+    print("Remove node by value: toyota")
+    ll.print()
+
+    print("Insert at end: kia")
+    ll.insert_at_end('kia')
     ll.print()
