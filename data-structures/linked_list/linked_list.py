@@ -22,3 +22,17 @@ class LinkedList:
  def insert_at_begining(self, data):
         node = Node(data, self.head)
         self.head = node
+
+
+ def insert_at_end(self, data):
+        if self.head is None:
+            self.head = Node(data, None)
+            return
+
+        itr = self.head
+
+        while itr.next:
+            itr = itr.next
+
+        itr.next = Node(data, None)
+
