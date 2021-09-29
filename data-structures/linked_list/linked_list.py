@@ -19,3 +19,6 @@ class LinkedList:
             itr = itr.next
         print(llstr)
 
+ def insert_at_begining(self, data):
+        node = Node(data, self.head)
+        self.head = node
