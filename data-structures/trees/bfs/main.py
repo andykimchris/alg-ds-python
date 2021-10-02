@@ -12,12 +12,15 @@ my_dog = TreeNode("Spot.jpg")
 docs.children = [my_wish, my_todo]
 photos.children = [my_cat, my_dog]
 
-print(sample_root_node)
+print("sample root node", sample_root_node)
 # Change the 2nd argument below
-goal_path = bfs(sample_root_node, "Fluffy.jpg")
+goal_path = bfs(sample_root_node, "Spot.jpg")
 if goal_path is None:
   print("No path found")
 else:
-  print("Path found")
+  str = ""
   for node in goal_path:
-    print(node.value)
+    str += node.value 
+    str += " | "
+  print("\n")
+  print("Path found", str)
