@@ -22,6 +22,7 @@ class MaxHeap:
     print("Heapifying up")
     idx = self.count
     while self.parent_idx(idx) > 0:
+      # child is the appended element in add() function
       child = self.heap_list[idx]
       parent = self.heap_list[self.parent_idx(idx)]
       if parent < child:
