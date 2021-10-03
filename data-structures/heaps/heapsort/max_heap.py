@@ -53,3 +53,19 @@ class MaxHeap:
     print("Last element moved to first: {0}".format(self.heap_list))
     self.heapify_down()
     return max_value
+
+  def get_larger_child_idx(self, idx):
+     # check if there is a right child
+    if self.right_child_idx(idx) > self.count:
+      print("There is only a left child")
+      return self.left_child_idx(idx)
+    else:
+      # compare left & right child to find larger value
+      left_child = self.heap_list[self.left_child_idx(idx)]
+      right_child = self.heap_list[self.right_child_idx(idx)]
+      if left_child > right_child:
+        print("Left larger")
+        return self.left_child_idx(idx)
+      else:
+        print("Right larger")
+        return self.right_child_idx(idx)
