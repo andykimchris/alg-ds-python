@@ -20,3 +20,12 @@ class BinarySearchTree:
         print(f'Tree node {value} added to the right of {self.value} at depth {self.depth + 1}')
       else:
         self.right.insert(value)
+  def get_node_by_value(self, value):
+    if (self.value == value):
+      return self
+    elif ((self.left is not None) and (value < self.value)):
+      return self.left.get_node_by_value(value)
+    elif ((self.right is not None) and (value >= self.value)):
+      return self.right.get_node_by_value(value)
+    else:
+      return None
