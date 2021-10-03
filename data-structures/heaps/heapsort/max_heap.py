@@ -38,4 +38,18 @@ class MaxHeap:
       idx = self.parent_idx(idx)
     print("Heap Restored {0}".format(self.heap_list))
 
-  
+  def retrieve_max(self):
+    if self.count == 0:
+      print("No items in heap")
+      return None
+
+    # get second value which is the MAX valye in heap list
+    max_value = self.heap_list[1]
+    print("Removing: {0} from {1}".format(max_value, self.heap_list))
+    # swap last value in heap list to second value
+    self.heap_list[1] = self.heap_list[self.count]
+    self.count -= 1
+    self.heap_list.pop()
+    print("Last element moved to first: {0}".format(self.heap_list))
+    self.heapify_down()
+    return max_value
