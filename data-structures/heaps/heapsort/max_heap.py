@@ -43,7 +43,7 @@ class MaxHeap:
       print("No items in heap")
       return None
 
-    # get second value which is the MAX valye in heap list
+    # get second value which is the MAX value in heap list
     max_value = self.heap_list[1]
     print("Removing: {0} from {1}".format(max_value, self.heap_list))
     # swap last value in heap list to second value
