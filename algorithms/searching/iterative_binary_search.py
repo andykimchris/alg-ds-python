@@ -1,7 +1,10 @@
 def binary_search(sorted_list, target):
+
+  # NB: Instead of creating sub arrays, we use pointers to minimize space usage
+
   left_pointer = 0
   right_pointer = len(sorted_list)
-  
+
   # check sublist is not empty
   while left_pointer < right_pointer:
     # calculate the middle index using the two pointers
@@ -14,7 +17,7 @@ def binary_search(sorted_list, target):
       right_pointer = mid_idx
     if target > mid_val:
       left_pointer = mid_idx + 1
-  
+
   return "Value not in list"
 
 # test cases
