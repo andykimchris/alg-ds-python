@@ -17,7 +17,7 @@ def nth_last_node(linked_list, n):
     slow = linked_list.head_node
     while fast:
         fast = fast.get_next_node()
-    if fast:
-        fast = fast.get_next_node()
-        slow = slow.get_next_node()
+        if fast:
+            fast = fast.get_next_node()
+            slow = slow.get_next_node()
     return slow
