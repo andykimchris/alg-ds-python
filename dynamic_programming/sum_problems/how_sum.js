@@ -40,3 +40,24 @@ console.log(howSum(7, [5,3,4,7])) // [4,3]
 console.log(howSum(7, [2,4])) // null
 console.log(howSum(8, [2,3,5])) // [2,2,2,2]
 console.log(howSum(300, [7, 14])) //null
+
+const how_sum = (targetSum, numbers) => {
+  const table = Array(targetSum + 1).fill(null)
+  table[0] = []
+
+  for (var i = 0; i <= targetSum; i++) {
+    if (table[i] !== null) {
+        for (var num of numbers) {
+          table[i + num] = [ ...table[i], num ]
+        }
+    }
+  }
+  return table[targetSum]
+}
+
+console.log('iterative solution');
+console.log(how_sum(5, [2,3])) // [3,2]
+console.log(how_sum(5, [5,4])) // [5]
+console.log(how_sum(5, [2,4])) // null
+console.log(how_sum(12, [9,7,5])) // [7,5]
+console.log(how_sum(100, [7,14])) // null
