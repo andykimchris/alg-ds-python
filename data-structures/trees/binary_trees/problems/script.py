@@ -21,3 +21,16 @@ def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Op
         root2.right = self.mergeTrees(root1.right, root2.right)
 
         return root2
+
+# NOTE: checl trees are similar i.e structurally identical & nodes have same values
+def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+
+        if p and not q or q and not p:
+            return False
+
+        if p.val != q.val:
+            return False
+
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
