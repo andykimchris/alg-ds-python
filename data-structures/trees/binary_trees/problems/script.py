@@ -75,7 +75,6 @@ def maxDepth(self, root: Optional[TreeNode]) -> int:
     # Iterative DFS
     if root is None:
         return 0
-
     stack = [[root, 1]]
     result = 0
     while stack:
@@ -87,3 +86,11 @@ def maxDepth(self, root: Optional[TreeNode]) -> int:
             stack.append([node.right, depth+1])
 
     return result
+
+    # Recursive DFS
+    if root is None:
+        return 0
+    left = self.maxDepth(root.left)
+    right = self.maxDepth(root.right)
+
+    return max(left, right) + 1
