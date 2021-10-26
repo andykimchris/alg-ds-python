@@ -68,3 +68,22 @@ def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
             minimum = diff
 
     return minimum
+
+
+# QUESTION: given root of BT, return its maximum depth
+def maxDepth(self, root: Optional[TreeNode]) -> int:
+    # Iterative DFS
+    if root is None:
+        return 0
+
+    stack = [[root, 1]]
+    result = 0
+    while stack:
+        node, depth = stack.pop()
+        # in case of null node
+        if node:
+            result = max(result, depth)
+            stack.append([node.left, depth+1])
+            stack.append([node.right, depth+1])
+
+    return result
