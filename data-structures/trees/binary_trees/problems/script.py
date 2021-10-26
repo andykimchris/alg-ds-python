@@ -22,7 +22,7 @@ def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Op
 
         return root2
 
-# NOTE: checl trees are similar i.e structurally identical & nodes have same values
+# NOTE: check trees are similar i.e structurally identical & nodes have same values
 def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q:
             return True
@@ -34,3 +34,37 @@ def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
             return False
 
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+# QUESTION: given root of a BST, return the minimum absolute difference btwn the values of any two nodes in the tree
+def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+    def dfsPostOrder(root):
+        if not root:
+            return None
+        values = []
+
+        if root.left:
+            values += dfsPostOrder(root.left)
+        if root.right:
+            values += dfsPostOrder(root.right)
+
+        values.append(root.val)
+        return values
+
+    res = dfsPostOrder(root)
+    res.sort()
+
+    minimum = None
+    length = len(res)
+    for i in range(length):
+        if i == length - 1:
+            break
+        left = res[i]
+        right = res[i + 1]
+        diff = right - left
+
+        if not minimum:
+            minimum = diff
+        if diff < minimum:
+            minimum = diff
+
+    return minimum
