@@ -26,3 +26,22 @@ const hasPathDFS = (graph, src, dst) => {
 
 console.log(hasPathDFS(graph, 'f', 'k')) // true
 console.log(hasPathDFS(graph, 'f', 'j')) // false
+
+
+// BFS iterative solution
+const hasPathBFS = (graph, src, dst) => {
+  const queue = [ src ]
+
+  while (queue.length > 0) {
+    const current = queue.shift()
+    if (current === dst) return true
+
+    for (var neighbor of graph[current]) {
+      queue.push(neighbor)
+    }
+  }
+  return false
+}
+
+console.log(hasPathBFS(graph, 'i', 'h')) // true
+console.log(hasPathBFS(graph, 'g', 'j')) // false
