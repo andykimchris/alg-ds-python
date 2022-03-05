@@ -16,11 +16,9 @@ def merge(left, right):
   print(left, right)
   while (left and right):
     if left[0] < right[0]:
-      result.append(left[0])
-      left.pop(0)
+      result.append(left.pop(0))
     else:
-      result.append(right[0])
-      right.pop(0)
+      result.append(right.pop(0))
 
   if left:
     result += left
@@ -29,7 +27,10 @@ def merge(left, right):
 
   return result
 
-unordered_list1 = [356, 746, 264, 569, 949, 895, 125]
-ordered_list1 = merge_sort(unordered_list1)
+# Time & Space
+# time: O(n log n)
+# space: O(n)
 
-print(ordered_list1)
+unordered_list = [356, 493, 746, 264, 569, 949, 895, 125]
+ordered_list = merge_sort(unordered_list)
+print('ordered_list', ordered_list)
