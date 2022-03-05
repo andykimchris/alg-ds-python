@@ -33,10 +33,12 @@ def quicksort(list, start, end):
   print("Running on right side")
   quicksort(list, less_than_pointer + 1, end)
 
+# Time & Space
+# time: O(n^2) worst case. However, most quicksort implementations sum to O(n log n) with the use of a moving pivot.
+# space: O(n)
 
-
-
-list = [5,3,1,1,7,4,6,2,8]
+list = [5,3,1,1,7,4,6,8,2]
+# list = [5,4,2,7,1]
 shuffle(list)
 print("PRE SORT: ", list)
 print(quicksort(list, 0, len(list) -1))
